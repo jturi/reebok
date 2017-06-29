@@ -12,9 +12,16 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from src.contact import myforms
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+EMAIL_HOST = 'smtp.zoho.eu'
+EMAIL_HOST_USER = myforms.myuser
+EMAIL_HOST_PASSWORD = myforms.mypassword
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
