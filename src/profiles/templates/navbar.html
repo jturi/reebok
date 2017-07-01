@@ -28,6 +28,7 @@
               <ul class="dropdown-menu">
                 {% if  request.user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'checkout' %}">Checkout</a></li>
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'account_login' %}">Login</a></li>

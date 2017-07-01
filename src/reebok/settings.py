@@ -9,11 +9,12 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+b = 13
 import os
 
 from src.contact import myforms
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from src.contact.myforms import mySTRIPE_PUBLISHABLE_KEY, mySTRIPE_SECRET_KEY
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'contact',
+    'checkout',
     'crispy_forms',
     'profiles',
 
@@ -53,7 +55,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'checkout',
     'stripe',
 ]
 
@@ -186,3 +187,13 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False
 ACCOUNT_PASSWORD_MIN_LENGTH = 6
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
+# stripe stuff
+
+# test keys
+STRIPE_PUBLISHABLE_KEY = mySTRIPE_PUBLISHABLE_KEY
+STRIPE_SECRET_KEY = mySTRIPE_SECRET_KEY
+
+# live keys
+# STRIPE_PUBLISHABLE_KEY = ''
+# STRIPE_SECRET_KEY = ''

@@ -19,6 +19,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from src.profiles import views as profile_views
 from src.contact import views as contact_views
+from src.checkout import views as checkout_views
 
 
 
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^$', profile_views.home, name='home'),
     url(r'^about/$', profile_views.about, name='about'),
     url(r'^profile/$', profile_views.userProfile, name='profile'),
+    url(r'^checkout/$', checkout_views.checkout, name='checkout'),
     url(r'^contact/$', contact_views.contact, name='contact'),
     url(r'^accounts/', include('allauth.urls')),
 ]
