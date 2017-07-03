@@ -42,6 +42,7 @@ def profileCallback(sender, user, **kwargs):
         userProfile.save()
 
 user_logged_in.connect(stripeCallback)
-user_logged_in.connect(profileCallback)
+user_signed_up.connect(stripeCallback)
+user_signed_up.connect(profileCallback)
 
 # request_finished.connect(my_callback)   - Signal callback

@@ -11,16 +11,21 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 @login_required
 def checkout(request):
     publishKey = settings.STRIPE_PUBLISHABLE_KEY
+    print("***stripe_id:", request.user.userstripe.stripe_id)
+    customer_id = request.user.userstripe.stripe_id
     if request.method == "POST":
         print("**************: ",request.POST)
         token = request.POST['stripeToken']
         print("**************Token: ", token)
         try:
+            customer = stripe.Customer.retrieve(customer_id)
+            customer.sources.create(source=token)
             charge = stripe.Charge.create(
-                amount=2000,
+                amount=4444,
                 currency="usd",
-                source=token, # obtained with Stripe.js
-                metadata={'order_id': '7777'}
+                # source=token, # obtained with Stripe.js
+                customer = customer,
+                metadata={'order_id': '7777'},
             )
         except stripe.error.CardError as e:
             # The card has been declined
