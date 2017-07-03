@@ -3,16 +3,18 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+publishKey = settings.STRIPE_PUBLISHABLE_KEY
 stripe.api_key = settings.STRIPE_SECRET_KEY
-# stripe.api_key = "sk_test_whc6atzMhM3uV499rqg2Q6G7"
 
 
 # Create your views here.
 
 @login_required
 def checkout(request):
+    if request.method == "POST":
+        print("**************: ",request.POST)
     template = 'checkout.html'
-    context = {'context':stripe.api_key}
+    context = {'publishKey':publishKey}
     return render(request, template, context)
 
 

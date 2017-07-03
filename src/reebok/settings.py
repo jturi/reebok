@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-b = 13
 import os
 
 from src.contact import myforms
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from src.contact.myforms import mySTRIPE_PUBLISHABLE_KEY, mySTRIPE_SECRET_KEY
+from contact.myforms import mySTRIPE_PUBLISHABLE_KEY, mySTRIPE_SECRET_KEY
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
